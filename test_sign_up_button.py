@@ -1,16 +1,17 @@
-# Test case 2: login with valid credentials using 2nd "Start for free" button
+# Test case 5: login with valid credentials using "Sign Up" for free button
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-def testStartForFreeButton2():
+def testSignUpButton():
     driver = webdriver.Chrome()
     driver.get("https://wealthx.ai/")
     driver.maximize_window()
-    start_for_free_button2 = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='title']//div//a[@class='btn primary'][normalize-space()='Start for free']")))
-    start_for_free_button2.click()
+    sign_up_button = WebDriverWait(driver, 10).until(
+        EC.element_to_be_clickable((By.XPATH, "//a[@class='btn secondary']")))
+    sign_up_button.click()
     username_input = WebDriverWait(driver, 10).until(
         EC.visibility_of_element_located((By.XPATH, "//input[@placeholder='Enter your username']")))
     username_input.send_keys("oleg")
